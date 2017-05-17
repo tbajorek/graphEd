@@ -1,0 +1,4 @@
+nbactions.xml
+*.run
+*.jpg
+/target/
