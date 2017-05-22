@@ -8,10 +8,7 @@ package pl.tbajorek.graphed.modules;
 import pl.tbajorek.graphed.model.Image;
 import pl.tbajorek.graphed.exception.TooLessArguments;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 import pl.tbajorek.graphed.exception.BadArgument;
 import pl.tbajorek.graphed.exception.FileNotFound;
 
@@ -28,12 +25,17 @@ abstract public class MainModule implements ModuleInterface {
     
     @Override
     public void initialize(String[] params) throws TooLessArguments, BadArgument {
-        if (params.length < minimumArguments) {
-            throw new TooLessArguments();
-        }
+        checkParams(params);
         this.params = params;
         this.readFile = params[1];
         this.writeFile = params[2];
+    }
+    
+    public boolean checkParams(String[] params) throws TooLessArguments, BadArgument {
+        if (params.length < minimumArguments) {
+            throw new TooLessArguments();
+        }
+        return true;
     }
     
     @Override
@@ -43,8 +45,7 @@ abstract public class MainModule implements ModuleInterface {
     
     @Override
     public void saveResults() throws IOException {
-        String[] parts = writeFile.split("\\.");
-        source.save(writeFile, parts[parts.length-1]);
+        saveOneFile(source, writeFile);
     }
     
     @Override
@@ -62,5 +63,10 @@ abstract public class MainModule implements ModuleInterface {
     
     protected int[] operationForEveryPixel(int[] color) {
         return color;
+    }
+    
+    protected void saveOneFile(Image file, String name) throws IOException {
+        String[] parts = name.split("\\.");
+        file.save(name, parts[parts.length-1]);
     }
 }

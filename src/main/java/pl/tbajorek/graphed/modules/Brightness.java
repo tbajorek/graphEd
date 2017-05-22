@@ -5,6 +5,9 @@
  */
 package pl.tbajorek.graphed.modules;
 
+import pl.tbajorek.graphed.exception.BadArgument;
+import pl.tbajorek.graphed.exception.TooLessArguments;
+
 /**
  *
  * @author tomek
@@ -16,7 +19,8 @@ public class Brightness extends MainModule {
     }
     
     @Override
-    public void initialize(String[] params) {
+    public void initialize(String[] params) throws TooLessArguments, BadArgument {
+        checkParams(params);
         setArguments(params[1], params[2], Integer.parseInt(params[3]));
     }
     

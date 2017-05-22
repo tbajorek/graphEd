@@ -18,6 +18,7 @@ import pl.tbajorek.graphed.model.Image;
  */
 public interface ModuleInterface {
     public void initialize(String[] params) throws TooLessArguments, BadArgument;
+    public boolean checkParams(String[] params) throws TooLessArguments, BadArgument;
     public void loadImage() throws FileNotFound, IOException;
     public boolean execute() throws ModuleNotFound;
     public void saveResults() throws IOException;

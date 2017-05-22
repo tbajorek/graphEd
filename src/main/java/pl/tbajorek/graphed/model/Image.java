@@ -79,6 +79,11 @@ public class Image {
         image.setRGB(x, y, color);
     }
     
+    public void setRGB(int x, int y, int red, int green, int blue) {
+        int color = (int)((((red << 8)|green) << 8)|blue);
+        image.setRGB(x, y, color);
+    }
+    
     public void setHSV(int x, int y, double[] hsv) {
         int[] rgb = new int[3];
         int i;
