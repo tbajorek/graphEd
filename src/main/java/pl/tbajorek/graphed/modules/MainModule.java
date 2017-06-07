@@ -22,6 +22,7 @@ abstract public class MainModule implements ModuleInterface {
     protected String[] params;
     protected int minimumArguments = 3;
     protected Image source = new Image();
+    protected boolean isDone = true;
     
     @Override
     public void initialize(String[] params) throws TooLessArguments, BadArgument {
@@ -51,6 +52,11 @@ abstract public class MainModule implements ModuleInterface {
     @Override
     public Image getImage() {
         return source;
+    }
+    
+    @Override
+    public boolean checkIfDone() {
+        return isDone;
     }
     
     protected void eachEveryPixel() {

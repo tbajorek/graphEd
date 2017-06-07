@@ -96,5 +96,7 @@ public class Dividergb extends MainModule {
     @Override
     public void help() {
         System.out.println("Please run the program:\ngraphed dividergb <sourcefile> <redfile> <greenfile> <bluefile> [<command>]");
+        System.out.println("<commmand> = \"gray\" - result images will be in saved a grayscale");
+        System.out.println("<commmand> = \"color\" - result images will be colored in RGB colors");
     }
 }

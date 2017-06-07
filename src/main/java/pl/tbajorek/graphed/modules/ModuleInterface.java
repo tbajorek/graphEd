@@ -24,4 +24,5 @@ public interface ModuleInterface {
     public void saveResults() throws IOException;
     public void help();
     public Image getImage();
+    public boolean checkIfDone();
 }

@@ -25,7 +25,9 @@ public class GraphEd {
             module.loadImage();
             module.execute();
             module.saveResults();
-            System.out.println("Zrobione.");
+            if(module.checkIfDone()) {
+                System.out.println("Zrobione.");
+            }
         } catch(TooLessArguments e) {
             System.out.println("Podano zbyt malo argumentow. Sprobuj ponownie.");
         } catch(BadArgument e) {

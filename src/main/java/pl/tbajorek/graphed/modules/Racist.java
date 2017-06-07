@@ -5,11 +5,13 @@
  */
 package pl.tbajorek.graphed.modules;
 
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author tomek
  */
-public class Recolorize extends MainModule {
+public class Racist extends MainModule {
     protected int accent;
     protected int range;
     protected int newValue;
@@ -46,6 +48,8 @@ public class Recolorize extends MainModule {
                 if(((hfrom <= hto && hfrom <= hsv[0] && hto >= hsv[0]) ||
                     (hfrom > hto && (hfrom <= hsv[0] || hto >= hsv[0])))) {
                     hsv[0] = hsv[0]+newValue;
+                    hsv[1] = 38;
+                    hsv[2] = 100;
                     if (Math.abs(hsv[0]) >= 360) {
                         hsv[0] -= hsv[0]*(int)(hsv[0]/360.0);
                     } else if(hsv[0] < 0) {

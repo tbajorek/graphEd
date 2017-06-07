@@ -39,7 +39,7 @@ public class Hequalization extends MainModule {
     
     @Override
     public void help() {
-        System.out.println("Please run the program:\ngraphed brightness <sourcefile> <destfile> <newbrightness>");
+        System.out.println("Please run the program:\ngraphed hequalization <sourcefile> <destfile>");
     }
     
     private void prepareHistogram() {

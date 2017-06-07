@@ -84,6 +84,6 @@ public class Timewarp extends MainModule {
     
     @Override
     public void help() {
-        System.out.println("Please run the program:\ngraphed brightness <sourcefile> <destfile> <newbrightness>");
+        System.out.println("Please run the program:\ngraphed timewarp <sourcefile> <destfile> <factor>");
     }
 }

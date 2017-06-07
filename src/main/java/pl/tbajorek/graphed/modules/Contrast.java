@@ -5,19 +5,23 @@
  */
 package pl.tbajorek.graphed.modules;
 
+import pl.tbajorek.graphed.exception.BadArgument;
+import pl.tbajorek.graphed.exception.TooLessArguments;
+
 /**
  *
  * @author tomek
  */
 public class Contrast extends MainModule {
-    protected int contrast;
+    protected double contrast;
     {
         minimumArguments = 4;
     }
     
     @Override
-    public void initialize(String[] params) {
-        setArguments(params[1], params[2], Integer.parseInt(params[3]));
+    public void initialize(String[] params) throws TooLessArguments, BadArgument {
+        checkParams(params);
+        setArguments(params[1], params[2], Double.parseDouble(params[3]));
     }
     
     @Override
@@ -34,14 +38,14 @@ public class Contrast extends MainModule {
         return true;
     }
     
-    public void setArguments(String readFile, String writeFile, int contrast) {
+    public void setArguments(String readFile, String writeFile, double contrast) {
         this.readFile = readFile;
         this.writeFile = writeFile;
         this.contrast = contrast;
     }
     
-    private int getNewValue(int color, int contrast) {
-        int newValue = (contrast*(color-127)+127);
+    private int getNewValue(int color, double contrast) {
+        int newValue = (int)(contrast*(color-127)+127);
         if (newValue > 255) {
             newValue = 255;
         } else if(newValue < 0) {

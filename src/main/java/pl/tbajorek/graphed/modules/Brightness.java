@@ -13,7 +13,7 @@ import pl.tbajorek.graphed.exception.TooLessArguments;
  * @author tomek
  */
 public class Brightness extends MainModule {
-    protected int brightness;
+    protected double brightness;
     {
         minimumArguments = 4;
     }
@@ -21,10 +21,10 @@ public class Brightness extends MainModule {
     @Override
     public void initialize(String[] params) throws TooLessArguments, BadArgument {
         checkParams(params);
-        setArguments(params[1], params[2], Integer.parseInt(params[3]));
+        setArguments(params[1], params[2], Double.parseDouble(params[3]));
     }
     
-    public void setArguments(String readFile, String writeFile, int brightness) {
+    public void setArguments(String readFile, String writeFile, double brightness) {
         this.readFile = readFile;
         this.writeFile = writeFile;
         this.brightness = brightness;
@@ -44,8 +44,8 @@ public class Brightness extends MainModule {
         return true;
     }
     
-    private int getNewValue(int color, int brightness) {
-        int newValue = color + brightness;
+    private int getNewValue(int color, double brightness) {
+        int newValue = (int)(color + brightness);
         if (newValue > 255) {
             newValue = 255;
         } else if(newValue < 0) {

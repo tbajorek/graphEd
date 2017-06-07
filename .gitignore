@@ -2,4 +2,5 @@ nbactions.xml
 *.run
 *.jpg
 *.bmp
-/target/
+target/
+images/

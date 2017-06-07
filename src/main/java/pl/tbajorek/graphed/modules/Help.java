@@ -20,6 +20,7 @@ public class Help extends MainModule {
     private String command;
     {
         minimumArguments = 2;
+        isDone = false;
     }
     @Override
     public void initialize(String[] params) throws TooLessArguments {
